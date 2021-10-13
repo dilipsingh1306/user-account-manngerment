@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+
+import feign.Logger;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -12,6 +15,12 @@ public class UserAccountManagementApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UserAccountManagementApplication.class, args);
+	}
+	
+	@Bean
+	Logger.Level geignLoggerLevel(){
+		
+		return Logger.Level.FULL;
 	}
 
 }
